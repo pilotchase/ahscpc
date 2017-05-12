@@ -54,7 +54,10 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle flag-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="navbar-collapse">Admin<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('admin/member') }}">Member Management</a></li>
+                                @if(Auth::user()->isDirectorAdmin())
+                                    <li><a href="{{ url('admin/create') }}">Create Membership</a></li>
+                                    <li><a href="{{ url('admin/member') }}">Member Management</a></li>
+                                @endif
                             </ul>
                         </li>   
                     @endif

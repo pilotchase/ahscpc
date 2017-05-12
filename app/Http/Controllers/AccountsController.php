@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image as Image;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Joined;
 use App\User;
 
 class AccountsController extends Controller
@@ -44,6 +46,8 @@ class AccountsController extends Controller
         $user->ip = $ip;
         $user->password = bcrypt($request->password);
         $user->save();
+
+        Mail::to($request->email)->send(new Joined($user));
         
         $newUser = User::where('ip', $ip)->where('email', $request->email)->first();
 

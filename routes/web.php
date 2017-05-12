@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::group(['middleware' => 'club_admin'], function() {
         Route::post('member', 'AdminController@getAccount');
         Route::post('member/{id}/roles', 'AdminController@updateRoles');
+        Route::post('create', 'AdminController@store');
+        Route::get('create', 'AdminController@create');
         Route::get('member/{id}', 'AdminController@show');
         Route::get('member', 'AdminController@member');
     });

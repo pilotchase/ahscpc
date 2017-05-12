@@ -34,6 +34,16 @@ Route::get('join', 'AccountsController@join_view');
 Auth::routes();
 
 /**
+ * Admin Routes
+ */
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
+    Route::group(['middleware' => 'director_admin'], function() {
+        Route::get('member', 'AdminController@member');
+    });
+});
+
+/**
  * Accounts Routes
  */
 

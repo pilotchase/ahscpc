@@ -10,11 +10,25 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('join') }}">
                             {{ csrf_field() }}
 
+                            <div class="form-group{{ $errors->has('sid') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Student ID (200XXXX)</label>
+
+                                <div class="col-md-6">
+                                    <input id="sid" type="text" class="form-control" name="sid" value="{{ old('sid') }}" required autofocus>
+
+                                    @if ($errors->has('sid'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('sid') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            
                             <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">First Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
+                                    <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required>
 
                                     @if ($errors->has('fname'))
                                         <span class="help-block">

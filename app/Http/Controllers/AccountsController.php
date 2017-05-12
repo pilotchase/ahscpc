@@ -37,8 +37,9 @@ class AccountsController extends Controller
         }
         $ip = $_SERVER['REMOTE_ADDR'];
         $user = new User();
-        $user->fname = $request->fname;
-        $user->lname = $request->lname;
+        $user->student_id = $request->sid;
+        $user->fname = ucfirst(strtolower($request->fname));
+        $user->lname = ucfirst(strtolower($request->lname));
         $user->email = $request->email;
         $user->ip = $ip;
         $user->password = bcrypt($request->password);

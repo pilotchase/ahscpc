@@ -38,7 +38,10 @@ Auth::routes();
  */
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
-    Route::group(['middleware' => 'director_admin'], function() {
+    Route::group(['middleware' => 'club_admin'], function() {
+        Route::post('member', 'AdminController@getAccount');
+        Route::post('member/{id}/roles', 'AdminController@updateRoles');
+        Route::get('member/{id}', 'AdminController@show');
         Route::get('member', 'AdminController@member');
     });
 });

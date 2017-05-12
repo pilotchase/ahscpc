@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+
 
 /**
  * Pages
@@ -28,6 +28,10 @@ Auth::routes();
 Route::get('about', function () {
     return view('pages.about');
 });
+
+Route::post('join', 'AccountsController@create');
+Route::get('join', 'AccountsController@join_view');
+Auth::routes();
 
 /**
  * Accounts Routes

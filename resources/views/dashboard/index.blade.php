@@ -28,6 +28,10 @@
                             $member_since = explode('-', $member_since);
                             echo $member_since[1] . '-' . $member_since[2] . '-' . $member_since[0];
                         @endphp
+                        <br/>
+                        @if(Auth::user()->role)
+                            Role: <span class="label" style="padding: 5px; background: @if(Auth::user()->role == 'President') rebeccapurple @elseif(Auth::user()->role == 'Vice President') green @elseif(Auth::user()->role == 'Treasurer') #1c3f95 @elseif(Auth::user()->role == 'Secretary') red @endif">{{ Auth::user()->role }}</span><br/>
+                        @endif
                         <br/><br/>
                         @if(Auth::user()->biography)
                             <div class="well">

@@ -26,4 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getNameAttribute()
+    {
+        return $this->fname . ' ' . $this->lname;
+    }
+
+    public function isClubAdmin()
+    {
+        if($this->admin >= 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isDirectorAdmin()
+    {
+        if($this->admin == 2) {
+            return true;
+        }
+        return false;
+    }
 }

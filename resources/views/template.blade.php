@@ -41,7 +41,25 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle flag-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="navbar-collapse">My Profile<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url('dashboard') }}">View</a></li>
+                            <li><a href="{{ url('dashboard/edit') }}">Edit</a></li>
+                            <li><a href="{{ url('dashboard/password') }}">Change Password</a></li>
+                        </ul>
+                    </li>
+                    @if(Auth::user()->isClubAdmin())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle flag-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="navbar-collapse">Admin<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('admin/member') }}">Member Management</a></li>
+                            </ul>
+                        </li>   
+                    @endif
                     <li><a href="{{ url('logout') }}"><span class="label label-primary">Logout</span></a></li>
+                @elseif(!Auth::check())
+                    <li><a href="{{ url('join') }}"><span class="label label-primary">Join</span></a></li>
                 @endif
             </ul>
         </div><!-- /.navbar-collapse -->

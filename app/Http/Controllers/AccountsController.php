@@ -16,7 +16,41 @@ class AccountsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+    }
+
+    public function join_view()
+    {
+        return view('pages.join');
+    }
+
+    public function create(Request $request)
+    {
+        $users = User::get();
+        foreach ($users as $result)
+        {
+            if($request->email == $result->email)
+            {
+                session()->flash('danger', 'You are already a club member.');
+                return redirect('/');
+            }
+        }
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $user = new User();
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->ip = $ip;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        
+        $newUser = User::where('ip', $ip)->where('email', $request->email)->first();
+
+        $newUser = User::find($newUser->id);
+        
+        Auth::login($newUser, 1);
+        
+        return redirect('/dashboard');
     }
 
     /**
@@ -28,19 +62,19 @@ class AccountsController extends Controller
     {
         return view('dashboard.index');
     }
-    
+
     public function edit()
     {
         return view('dashboard.edit');
     }
-    
+
     public function editProfile(Request $request, $id)
     {
         $this->validate($request, [
             'avatar' => 'image|nullable',
             'biography' => 'string|nullable'
         ]);
-        
+
         $user = User::where('id', $id)->first();
 
         if($request->hasFile('avatar')) {
@@ -52,23 +86,23 @@ class AccountsController extends Controller
 
         $user->biography = $request->biography;
         $user->save();
-        
+
         session()->flash('success', 'Successfully updated profile.');
         return redirect('dashboard/edit');
     }
-    
+
     public function password()
     {
         return view('dashboard.password');
     }
-    
+
     public function changePassword(Request $request, $id)
     {
         $this->validate($request, [
             'password1' => 'required',
             'password2' => 'required'
         ]);
-        
+
         if($request->password1 != $request->password2) /** Do the passwords match? */
         {
             session()->flash('danger', 'Your passwords do not match. Try again.');

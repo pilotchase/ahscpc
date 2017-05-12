@@ -11,10 +11,39 @@
 |
 */
 
+/**
+ * Global Routes
+ */
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/**
+ * Pages
+ */
+
+Route::get('about', function () {
+    return view('pages.about');
+});
+
+/**
+ * Accounts Routes
+ */
+
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
+    Route::post('edit/{id}', 'AccountsController@editProfile');
+    Route::post('password/{id}', 'AccountsController@changePassword');
+    Route::get('/', 'AccountsController@index');
+    Route::get('edit', 'AccountsController@edit');
+    Route::get('password', 'AccountsController@password');
+});
+
+Route::get('logout', function () {
+    Auth::logout();
+    
+    session()->flash('success', 'You have successfully logged out.');
+    return redirect('/');
+});

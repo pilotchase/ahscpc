@@ -19,7 +19,7 @@
                    President's Message 
                 </div>
                 <div class="panel-body">
-                   <!-- <p>Howdy,
+                    <p>Howdy,
                     
                     <br/><br/>
                     
@@ -40,7 +40,7 @@
                         <br/>
                         Chase Morgan
                         <br/>
-                        President-->
+                        President
                     </p>
                 </div>
             </div>

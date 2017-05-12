@@ -54,7 +54,7 @@
                                     <form action="{{ url('admin/member/' . $user->id . '/roles') }}" method="post" class="form-horizontal">
                                         {{ csrf_field() }}
                                         <select name="admin" class="form-control">
-                                            <option value="" @if($user->admin == 0) selected="selected" @endif>No Admin</option>
+                                            <option value="0" @if($user->admin == 0) selected="selected" @endif>No Admin</option>
                                             <option value="1" @if($user->admin == 1) selected="selected" @endif>Club Admin</option>
                                             <option value="2" @if($user->admin == 2) selected="selected" @endif>Director Admin</option>
                                         </select>

@@ -8,7 +8,7 @@ We have processed your membership with the following information:
 @component('mail::panel')
     **Student ID:** {{ $user->student_id }}  
     **Email:** {{ $user->email }}  
-    **Password:** {{ $password }}  
+    **Temporary Password:** {{ $password }}  
     **Full Name:** {{ $user->fname . ' ' . $user->lname }}
 @endcomponent
 

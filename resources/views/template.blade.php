@@ -37,6 +37,8 @@
                     <a href="#" class="dropdown-toggle flag-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="navbar-collapse">Information<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ url('about') }}">About</a></li>
+                        <li><a href="{{ url('management') }}">Club Management</a></li>
+                        <li><a href="{{ url('members') }}">Club Roster</a></li>
                     </ul>
                 </li>
             </ul>

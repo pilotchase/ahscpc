@@ -68,6 +68,27 @@ class AccountsController extends Controller
         return view('dashboard.index');
     }
 
+    public function members()
+    {
+        $advisors = User::where('role', 'Advisor')->get();
+        $presidents = User::where('role', 'President')->get();
+        $vice_presidents = User::where('role', 'Vice President')->get();
+        $treasurers = User::where('role', 'Treasurer')->get();
+        $secretaries = User::where('role', 'Secretary')->get();
+        $members = User::whereNull('role')->get();
+        return view('members.index', compact('advisors','presidents', 'vice_presidents', 'treasurers', 'secretaries', 'members'));
+    }
+    
+    public function management()
+    {
+        $advisors = User::where('role', 'Advisor')->get();
+        $presidents = User::where('role', 'President')->get();
+        $vice_presidents = User::where('role', 'Vice President')->get();
+        $treasurers = User::where('role', 'Treasurer')->get();
+        $secretaries = User::where('role', 'Secretary')->get();
+        return view('pages.management', compact('advisors','presidents', 'vice_presidents', 'treasurers', 'secretaries'));
+    }
+
     public function edit()
     {
         return view('dashboard.edit');

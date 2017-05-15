@@ -29,6 +29,9 @@ Route::get('about', function () {
     return view('pages.about');
 });
 
+Route::get('management', 'AccountsController@management');
+Route::get('members', 'AccountsController@members');
+
 Route::post('join', 'AccountsController@create');
 Route::get('join', 'AccountsController@join_view');
 Auth::routes();

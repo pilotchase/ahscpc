@@ -40,6 +40,8 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="summarry">
                             <br/>
+                            <img src="{{ url('avatars/' . $user->avatar) }}" class="img-thumbnail">
+                            <br/>
                             {{ $user->name }}<br/>
                             @if($user->role)
                                 {{ $user->role }}    
@@ -61,6 +63,7 @@
                                         <br/>
                                         <select name="role" class="form-control">
                                             <option value="" @if(!$user->role) selected="selected" @endif>No Management Role</option>
+                                            <option value="Advisor" @if($user->role == 'Advisor') selected="selected" @endif>Advisor</option>
                                             <option value="President" @if($user->role == 'President') selected="selected" @endif>President</option>
                                             <option value="Vice President" @if($user->role == 'Vice President') selected="selected" @endif>Vice President</option>
                                             <option value="Treasurer" @if($user->role == 'Treasurer') selected="selected" @endif>Treasurer</option>

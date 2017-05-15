@@ -29,7 +29,7 @@
             @foreach($advisors as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: black" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
@@ -44,7 +44,7 @@
             @foreach($presidents as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: rebeccapurple" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
@@ -59,7 +59,7 @@
             @foreach($vice_presidents as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: green" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
@@ -74,7 +74,7 @@
             @foreach($treasurers as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: #1c3f95" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
@@ -89,7 +89,7 @@
             @foreach($secretaries as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: red" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
@@ -104,7 +104,7 @@
             @foreach($members as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
-                    <td style="text-align: center; vertical-align: middle">{{ $user->name }}</td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span class="label label-warning"> Member </span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php

@@ -7,23 +7,24 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Joined extends Mailable
+class NewRole extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
-    public $password;
+    public $changer;
+    public $role;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $password)
+    public function __construct($user, $changer, $role)
     {
         $this->user = $user;
-        $this->password = $password;
-        $this->subject = 'Welcome to AHSCPC!';
+        $this->changer = $changer;
+        $this->role = $role;
     }
 
     /**
@@ -33,6 +34,6 @@ class Joined extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.account.joined')->subject($this->subject);
+        return $this->markdown('emails.new_role')->subject('Welcome to AHSCPC Management!');
     }
 }

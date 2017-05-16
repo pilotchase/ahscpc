@@ -29,6 +29,9 @@ Route::get('about', function () {
     return view('pages.about');
 });
 
+Route::post('admin/broadcast', 'AdminController@send_broadcast');
+Route::get('admin/broadcast', 'AdminController@show_broadcast');
+
 Route::get('management', 'AccountsController@management');
 Route::get('members', 'AccountsController@members');
 

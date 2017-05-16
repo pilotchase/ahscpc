@@ -12,6 +12,14 @@ We have processed your membership with the following information:
     **Full Name:** {{ $user->fname . ' ' . $user->lname }}
 @endcomponent
 
+We have also made you an account on our forums.
+
+@component('mail::panel')
+    **Username:** {{ $user->fname . $user->lname }}  
+    **Password:** {{ $password }}  
+    **Link:** https://talk.ahscpc.org
+@endcomponent
+
 Please visit our website https://ahscpc.org to login, using your email address, and supplied password. For security reasons, we recommend you change your password upon your initial login.  
 
 We are excited that you are with us, and we encourage you to get to know other members as well as club management. If you have any questions,

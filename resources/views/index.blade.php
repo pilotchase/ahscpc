@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-    <img src="{{ url('img/banner1.png') }}" width="100%"><br><br>
+    <img src="{{ url('img/ahscpc-banner1.png') }}" width="100%"><br><br>
     
     <div class="row">
         <div class="col-md-8">

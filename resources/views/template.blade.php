@@ -59,6 +59,8 @@
                                 @if(Auth::user()->isDirectorAdmin())
                                     <li><a href="{{ url('admin/create') }}">Create Membership</a></li>
                                     <li><a href="{{ url('admin/member') }}">Member Management</a></li>
+                                    <div class="divider"></div>
+                                    <li><a href="{{ url('admin/broadcast') }}">Broadcast</a></li>
                                 @endif
                             </ul>
                         </li>   

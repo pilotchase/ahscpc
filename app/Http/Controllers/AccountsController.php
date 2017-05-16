@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image as Image;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 use App\Mail\Joined;
 use App\User;
 
@@ -47,7 +48,20 @@ class AccountsController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        Mail::to($request->email)->send(new Joined($user));
+        $password_plain = substr(md5(rand()), 0, 7);
+        $password = bcrypt($password_plain);
+
+        DB::connection('mysql_talk')->table('users')
+            ->insert(
+                [
+                    'username' => $user->fname . $user->lname,
+                    'email' => $user->email,
+                    'is_activated' => 1,
+                    'password' => $password
+                ]
+            );
+
+        Mail::to($request->email)->send(new Joined($user, $password_plain));
         
         $newUser = User::where('ip', $ip)->where('email', $request->email)->first();
 

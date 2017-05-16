@@ -39,7 +39,7 @@
                             </div>
                         @endif
                     </div>
-                        <img src="{{ url('avatars/' . Auth::user()->avatar) }}" class="img-thumbnail img-responsive pull-right" style="margin-right: 15px;">
+                        <img src="{{ url('avatars/' . Auth::user()->avatar) }}" class="img-circle img-responsive pull-right" style="margin-right: 15px;">
                 </div>
             </div>
         </div>

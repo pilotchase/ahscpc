@@ -102,6 +102,12 @@ class AccountsController extends Controller
         $secretaries = User::where('role', 'Secretary')->get();
         return view('pages.management', compact('advisors','presidents', 'vice_presidents', 'treasurers', 'secretaries'));
     }
+    
+    public function show($id)
+    {
+        $user = User::where('id', $id)->first();
+        return view('members.show', compact('user'));
+    }
 
     public function edit()
     {

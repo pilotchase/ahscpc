@@ -1,10 +1,10 @@
 @extends('template')
 
 @section('content')
-    <img src="{{ url('img/ahscpc-banner1.png') }}" width="100%"><br><br>
+    <img src="{{ url('img/ahscpc-banner1.png') }}" class="img-responsive img-rounded"><br>
     
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             @if(session()->get('success'))
                 <div class="alert alert-success">{{ session()->get('success') }}</div>
             @elseif(session()->get('warning'))
@@ -14,8 +14,8 @@
             @elseif(session()->get('info'))
                 <div class="alert alert-info">{{ session()->get('info') }}</div>
             @endif
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="panel panel-primary">
+                <div class="panel-heading panel-heading-custom">
                    President's Message 
                 </div>
                 <div class="panel-body">
@@ -44,41 +44,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            @if(!Auth::check())
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Login
-                    </div>
-                    <div class="panel-body">
-                        @if ($errors->has('email'))
-                            <div class="alert alert-danger">
-                                {{ $errors->first('email') }}
-                            </div>
-                        @endif
-                        @if ($errors->has('password'))
-                            <div class="alert alert-danger">
-                                {{ $errors->first('password') }}
-                            </div>
-                        @endif
-                        <form action="{{ url('login') }}" method="post" class="form-horizontal">
-                            {{ csrf_field() }}
-                            <label>Email Address</label>
-                            <input name="email" type="email" class="form-control" placeholder="@auhsdschools.org" required>
-    
-                            <br/>
-                            <label>Password</label>
-                            <input name="password" type="password" class="form-control" placeholder="xxxxxx" required>
-                            
-                            <div class="divider"></div>
-                            
-                            <br/>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
-                </div>
-            @endif
         </div>
     </div>
 @endsection

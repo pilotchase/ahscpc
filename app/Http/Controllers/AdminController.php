@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\AccountCreated;
 use App\Mail\Broadcast;
 use App\Mail\NewRole;
+use App\Mail\PasswordReset;
 use App\User;
 
 class AdminController extends Controller
@@ -84,6 +85,24 @@ class AdminController extends Controller
         
         session()->flash('success', 'Membership successfully created.');
         return redirect('admin/create');
+    }
+    
+    public function resetPassword($id)
+    {
+        $password_plain = substr(md5(rand()), 0, 7);
+        $password = bcrypt($password_plain);
+        
+        $user = User::where('id', $id)->first();
+        $user->password = $password;
+        $user->remember_token = null;
+        $user->save();
+        
+        DB::table('sessions')->where('user_id', $id)->truncate();
+
+        Mail::to($user->email)->send(new PasswordReset($user, $password_plain));
+        
+        session()->flash('success', 'Password successfully reset.');
+        return redirect('admin/member/' . $id);
     }
 
     public function member()

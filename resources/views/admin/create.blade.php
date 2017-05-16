@@ -13,7 +13,7 @@
                 @elseif(session()->get('info'))
                     <div class="alert alert-info">{{ session()->get('info') }}</div>
                 @endif
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">Create</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/create') }}">

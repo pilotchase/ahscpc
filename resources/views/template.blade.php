@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>AHS Computer Programing Club - @yield('title')</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url('css/style.css') }}">
     <script src="https://use.fontawesome.com/2d6fb1cf74.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" href="images/favicon.ico">
@@ -14,6 +13,7 @@
 <!-- JS Scripts for Boostrap Plugins -->
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{{ url('css/style.css') }}">
 
 <!-- navbar -->
 <img src="{{ url('img/ahscpc-logo.png') }}" width="20%" class="img-responsive">
@@ -41,6 +41,7 @@
                         <li><a href="{{ url('members') }}">Club Roster</a></li>
                     </ul>
                 </li>
+                <li><a href="https://talk.ahscpc.org" target="_blank">Discussions</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
@@ -65,16 +66,42 @@
                             </ul>
                         </li>   
                     @endif
-                    <li><a href="{{ url('logout') }}"><span class="label label-primary">Logout</span></a></li>
+                    <li><a href="{{ url('logout') }}">Logout</a></li>
                 @elseif(!Auth::check())
-                    <li><a href="{{ url('join') }}"><span class="label label-primary">Join</span></a></li>
+                    <li><a href="{{ url('login') }}">Login</a></li>
+                    <li><a href="{{ url('join') }}"><span class="label label-primary">Signup</span></a></li>
                 @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
-@yield('content')
+<div class="row">
+    <div class="col-md-9">
+        @yield('content')
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Upcoming Events</strong></h3>
+            </div>
+            <table class="table table-condensed table-bordered" id="roster">
+                <thead>
+                <tr>
+                    <th width="20%" style="text-align:center;background:#EEEEEE;">Date</th>
+                    <th width="20%" style="text-align:center;background:#EEEEEE;">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">08/21/2017</td>
+                    <td style="text-align: center; vertical-align: middle;">Website Launch</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <br><br>
 <div class="panel panel-default">

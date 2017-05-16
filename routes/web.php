@@ -19,38 +19,95 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-
 /**
  * Pages
+ */
+
+/**
+ * Show the about page view
  */
 
 Route::get('about', function () {
     return view('pages.about');
 });
 
-Route::post('admin/broadcast', 'AdminController@send_broadcast');
-Route::get('admin/broadcast', 'AdminController@show_broadcast');
+/**
+ * Show the management page
+ */
 
 Route::get('management', 'AccountsController@management');
-Route::get('members', 'AccountsController@members');
 
-Route::post('join', 'AccountsController@create');
-Route::get('join', 'AccountsController@join_view');
-Auth::routes();
+/**
+ * Show the member roster
+ */
+Route::group(['prefix' => 'members'], function() {
+    Route::get('/', 'AccountsController@members');
+    Route::get('{id}', 'AccountsController@show');
+});
 
 /**
  * Admin Routes
  */
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
+    Route::group(['middleware' => 'director_admin'], function() {
+        
+    });
     Route::group(['middleware' => 'club_admin'], function() {
+        
+        /**
+         * Fetch member account information by posting ID
+         */
+        
         Route::post('member', 'AdminController@getAccount');
+        
+        /**
+         * Update member account roles
+         */
+        
         Route::post('member/{id}/roles', 'AdminController@updateRoles');
+        
+        /**
+         * Create new membership
+         */
+        
         Route::post('create', 'AdminController@store');
+        
+        /**
+         * Send broadcast
+         */
+        
+        Route::post('broadcast', 'AdminController@send_broadcast');
+        
+        /**
+         * Show membership create page
+         */
+        
         Route::get('create', 'AdminController@create');
+        
+        /**
+         * Show information about given controller by ID
+         */
+        
         Route::get('member/{id}', 'AdminController@show');
+        
+        /**
+         * Run reset password method for given account ID
+         */
+        
+        Route::get('member/{id}/passwordreset', 'AdminController@resetPassword');
+        
+        /**
+         * Show member search page
+         */
+        
         Route::get('member', 'AdminController@member');
+        
+        /**
+         * Show broadcast page
+         */
+        
+        Route::get('broadcast', 'AdminController@show_broadcast');
     });
 });
 
@@ -65,6 +122,28 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
     Route::get('edit', 'AccountsController@edit');
     Route::get('password', 'AccountsController@password');
 });
+
+/**
+ * Create new account
+ */
+
+Route::post('join', 'AccountsController@create');
+
+/**
+ * Show registration page
+ */
+
+Route::get('join', 'AccountsController@join_view');
+
+/**
+ * Load Laravel Auth routes
+ */
+
+Auth::routes();
+
+/**
+ * Log user out of the application
+ */
 
 Route::get('logout', function () {
     Auth::logout();

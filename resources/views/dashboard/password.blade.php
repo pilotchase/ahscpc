@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-12">
             @if(session()->get('success'))
                 <div class="alert alert-success">{{ session()->get('success') }}</div>
             @elseif(session()->get('warning'))
@@ -14,7 +14,7 @@
             @elseif(session()->get('info'))
                 <div class="alert alert-info">{{ session()->get('info') }}</div>
             @endif
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Change Password</div>
                 <div class="panel-body">
                     <div class="row">

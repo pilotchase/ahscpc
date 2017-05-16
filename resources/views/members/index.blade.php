@@ -12,7 +12,7 @@
             </ul>
         </div>
     @endif
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Club Roster</strong></h3>
         </div>

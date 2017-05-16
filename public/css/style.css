@@ -13,8 +13,20 @@ body{
     background: #1c3f95;
 }
 
-.btn-primary{
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary {
     background: #1c3f95;
+}
+
+.btn-primary:hover {
+    background: #1c3f95;
+}
+
+.panel-primary > .panel-heading {
+    background: #1c3f95 !important;
 }
 
 .label{

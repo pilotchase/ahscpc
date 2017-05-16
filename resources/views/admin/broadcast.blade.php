@@ -12,7 +12,7 @@
     @elseif(session()->get('info'))
         <div class="alert alert-info">{{ session()->get('info') }}</div>
     @endif
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Email Broadcast</strong></h3>
         </div>

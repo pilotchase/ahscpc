@@ -76,7 +76,10 @@
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <br/>
+                            <button onclick="location.href='{{ url('admin/member/' . $user->id . '/passwordreset') }}';"  class="btn btn-primary">Reset Password</button>
+                        </div>
                     </div>
                 </div>
             </div>

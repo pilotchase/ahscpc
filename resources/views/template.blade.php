@@ -106,7 +106,7 @@
 <br><br>
 <div class="panel panel-default">
     <div class="panel-body">
-        The mission of Acalanes High School is to develop responsible, productive, informed citizens who appreciate and respect their own and others' uniqueness and worth. &copy; {{ date('Y') }} Chase Morgan. Some Rights Reserved.
+        The mission of Acalanes High School is to develop responsible, productive, informed citizens who appreciate and respect their own and others' uniqueness and worth. &copy; {{ date('Y') }} <a href="https://chaseamorgan.com" target="_blank">Chase Morgan</a>. Some Rights Reserved.
     </div>
 </div>
 

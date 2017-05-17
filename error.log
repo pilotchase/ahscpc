@@ -44,3 +44,10 @@
 [Fri May 12 06:55:36.689936 2017] [:error] [pid 28506] [client 73.202.205.32:57311] PHP Parse error:  syntax error, unexpected ')' in /var/www/ahscpc/storage/framework/views/0c839bf17bfcf997b6e1f8361fa1f7cc0a50aa53.php on line 22
 [Mon May 15 16:57:05.131215 2017] [:error] [pid 930] [client 169.199.30.125:51588] PHP Parse error:  syntax error, unexpected '__data' (T_STRING) in /var/www/ahscpc/storage/framework/views/556c30e7c67517cbbb8dd33b59dc26f5c34360f9.php on line 87
 [Tue May 16 18:46:44.015469 2017] [:error] [pid 25622] [client 169.199.30.125:9527] PHP Fatal error:  Class 'App\\Http\\Controllers\\DB' not found in /var/www/ahscpc/app/Http/Controllers/AccountsController.php on line 53, referer: https://ahscpc.org/join
+[Wed May 17 17:54:45.833018 2017] [authz_core:error] [pid 25618] [client 80.82.69.112:40384] AH01630: client denied by server configuration: /usr/share/phpMyAdmin/scripts
+[Wed May 17 17:54:46.414336 2017] [authz_core:error] [pid 28631] [client 80.82.69.112:41499] AH01630: client denied by server configuration: /usr/share/phpMyAdmin/scripts
+[Wed May 17 17:55:21.313577 2017] [authz_core:error] [pid 1962] [client 80.82.69.112:59155] AH01630: client denied by server configuration: /usr/share/phpMyAdmin/scripts
+[Wed May 17 22:05:10.310229 2017] [:error] [pid 1962] [client 73.202.205.32:63910] PHP Fatal error:  Class 'User' not found in /var/www/ahscpc/routes/web.php on line 23
+[Wed May 17 22:08:51.276010 2017] [:error] [pid 6453] [client 73.202.205.32:64009] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/ahscpc/routes/web.php on line 23
+[Wed May 17 22:09:08.793295 2017] [:error] [pid 8601] [client 73.202.205.32:64020] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/ahscpc/routes/web.php on line 23
+[Wed May 17 22:52:05.783515 2017] [:error] [pid 8883] [client 73.202.205.32:64922] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /var/www/ahscpc/routes/web.php on line 36

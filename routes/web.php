@@ -15,6 +15,23 @@
  * Global Routes
  */
 
+Route::group(['domain' => 'api.ahscpc.org'], function () {
+    Route::group(['prefix' => 'token'], function() {
+        Route::get('', function () {
+            die('Invalid API Request.');
+        });
+        Route::get('{token}/', function () {
+            die('Invalid API Request.');
+        });
+        Route::get('{token}/members', 'ApiController@members');
+        Route::get('{token}/members/{sid}', 'ApiController@member');
+    });
+
+    Route::get('/', function() {
+        return view('api.index');
+    });
+});
+
 Route::get('/', function () {
     return view('index');
 });

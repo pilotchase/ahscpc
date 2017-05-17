@@ -10,14 +10,14 @@ class ComposerStaticIniteaf1e82ff3667cdc03b9e7200689a825
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -98,7 +98,14 @@ class ComposerStaticIniteaf1e82ff3667cdc03b9e7200689a825
         'C' => 
         array (
             'Cron\\' => 5,
+            'Composer\\CaBundle\\' => 18,
             'Carbon\\' => 7,
+        ),
+        'B' => 
+        array (
+            'Bugsnag\\PsrLogger\\' => 18,
+            'Bugsnag\\BugsnagLaravel\\' => 23,
+            'Bugsnag\\' => 8,
         ),
         'A' => 
         array (
@@ -253,9 +260,25 @@ class ComposerStaticIniteaf1e82ff3667cdc03b9e7200689a825
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'Bugsnag\\PsrLogger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bugsnag/bugsnag-psr-logger/src',
+        ),
+        'Bugsnag\\BugsnagLaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src',
+        ),
+        'Bugsnag\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bugsnag/bugsnag/src',
         ),
         'App\\' => 
         array (
@@ -306,6 +329,7 @@ class ComposerStaticIniteaf1e82ff3667cdc03b9e7200689a825
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AccountsController' => __DIR__ . '/../..' . '/app/Http/Controllers/AccountsController.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -313,19 +337,64 @@ class ComposerStaticIniteaf1e82ff3667cdc03b9e7200689a825
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\ClubAdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/ClubAdminMiddleware.php',
+        'App\\Http\\Middleware\\DirectorAdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/DirectorAdminMiddleware.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Mail\\AccountCreated' => __DIR__ . '/../..' . '/app/Mail/AccountCreated.php',
+        'App\\Mail\\Broadcast' => __DIR__ . '/../..' . '/app/Mail/Broadcast.php',
+        'App\\Mail\\Joined' => __DIR__ . '/../..' . '/app/Mail/Joined.php',
+        'App\\Mail\\NewRole' => __DIR__ . '/../..' . '/app/Mail/NewRole.php',
+        'App\\Mail\\PasswordReset' => __DIR__ . '/../..' . '/app/Mail/PasswordReset.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Bugsnag\\Breadcrumbs\\Breadcrumb' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Breadcrumbs/Breadcrumb.php',
+        'Bugsnag\\Breadcrumbs\\Recorder' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Breadcrumbs/Recorder.php',
+        'Bugsnag\\BugsnagLaravel\\BugsnagServiceProvider' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/BugsnagServiceProvider.php',
+        'Bugsnag\\BugsnagLaravel\\Commands\\DeployCommand' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/Commands/DeployCommand.php',
+        'Bugsnag\\BugsnagLaravel\\Facades\\Bugsnag' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/Facades/Bugsnag.php',
+        'Bugsnag\\BugsnagLaravel\\LaravelLogger' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/LaravelLogger.php',
+        'Bugsnag\\BugsnagLaravel\\MultiLogger' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/MultiLogger.php',
+        'Bugsnag\\BugsnagLaravel\\Queue\\Tracker' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/Queue/Tracker.php',
+        'Bugsnag\\BugsnagLaravel\\Request\\LaravelRequest' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/Request/LaravelRequest.php',
+        'Bugsnag\\BugsnagLaravel\\Request\\LaravelResolver' => __DIR__ . '/..' . '/bugsnag/bugsnag-laravel/src/Request/LaravelResolver.php',
+        'Bugsnag\\Callbacks\\CustomUser' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/CustomUser.php',
+        'Bugsnag\\Callbacks\\EnvironmentData' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/EnvironmentData.php',
+        'Bugsnag\\Callbacks\\GlobalMetaData' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/GlobalMetaData.php',
+        'Bugsnag\\Callbacks\\RequestContext' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/RequestContext.php',
+        'Bugsnag\\Callbacks\\RequestCookies' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/RequestCookies.php',
+        'Bugsnag\\Callbacks\\RequestMetaData' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/RequestMetaData.php',
+        'Bugsnag\\Callbacks\\RequestSession' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/RequestSession.php',
+        'Bugsnag\\Callbacks\\RequestUser' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Callbacks/RequestUser.php',
+        'Bugsnag\\Client' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Client.php',
+        'Bugsnag\\Configuration' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Configuration.php',
+        'Bugsnag\\ErrorTypes' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/ErrorTypes.php',
+        'Bugsnag\\Handler' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Handler.php',
+        'Bugsnag\\HttpClient' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/HttpClient.php',
+        'Bugsnag\\Middleware\\BreadcrumbData' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Middleware/BreadcrumbData.php',
+        'Bugsnag\\Middleware\\CallbackBridge' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Middleware/CallbackBridge.php',
+        'Bugsnag\\Middleware\\NotificationSkipper' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Middleware/NotificationSkipper.php',
+        'Bugsnag\\Pipeline' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Pipeline.php',
+        'Bugsnag\\PsrLogger\\AbstractLogger' => __DIR__ . '/..' . '/bugsnag/bugsnag-psr-logger/src/AbstractLogger.php',
+        'Bugsnag\\PsrLogger\\BugsnagLogger' => __DIR__ . '/..' . '/bugsnag/bugsnag-psr-logger/src/BugsnagLogger.php',
+        'Bugsnag\\PsrLogger\\MultiLogger' => __DIR__ . '/..' . '/bugsnag/bugsnag-psr-logger/src/MultiLogger.php',
+        'Bugsnag\\Report' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Report.php',
+        'Bugsnag\\Request\\BasicResolver' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Request/BasicResolver.php',
+        'Bugsnag\\Request\\NullRequest' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Request/NullRequest.php',
+        'Bugsnag\\Request\\PhpRequest' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Request/PhpRequest.php',
+        'Bugsnag\\Request\\RequestInterface' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Request/RequestInterface.php',
+        'Bugsnag\\Request\\ResolverInterface' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Request/ResolverInterface.php',
+        'Bugsnag\\Stacktrace' => __DIR__ . '/..' . '/bugsnag/bugsnag/src/Stacktrace.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+        'Composer\\CaBundle\\CaBundle' => __DIR__ . '/..' . '/composer/ca-bundle/src/CaBundle.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateSessionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_213124_create_sessions_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

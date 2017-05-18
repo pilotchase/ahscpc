@@ -124,6 +124,16 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'teamspeak_username' => env('TEAMSPEAK_USERNAME'),
+
+    'teamspeak_host' => env('TEAMSPEAK_HOST'),
+
+    'teamspeak_password' => env('TEAMSPEAK_PASSWORD'),
+
+    'teamspeak_query' => env('TEAMSPEAK_QUERY'),
+
+    'teamspeak_port' => env('TEAMSPEAK_PORT'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

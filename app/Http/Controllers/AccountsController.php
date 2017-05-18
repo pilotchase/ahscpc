@@ -47,9 +47,8 @@ class AccountsController extends Controller
         $user->ip = $ip;
         $user->password = bcrypt($request->password);
         $user->save();
-
-        $password_plain = substr(md5(rand()), 0, 7);
-        $password = bcrypt($password_plain);
+        
+        $password = bcrypt($request->password);
 
         DB::connection('mysql_talk')->table('users')
             ->insert(
@@ -61,7 +60,7 @@ class AccountsController extends Controller
                 ]
             );
 
-        Mail::to($request->email)->send(new Joined($user, $password_plain));
+        Mail::to($request->email)->send(new Joined($user));
         
         $newUser = User::where('ip', $ip)->where('email', $request->email)->first();
 
@@ -84,23 +83,25 @@ class AccountsController extends Controller
 
     public function members()
     {
-        $advisors = User::where('role', 'Advisor')->get();
-        $presidents = User::where('role', 'President')->get();
-        $vice_presidents = User::where('role', 'Vice President')->get();
-        $treasurers = User::where('role', 'Treasurer')->get();
-        $secretaries = User::where('role', 'Secretary')->get();
+        $adv = User::where('role', 'Advisor')->get();
+        $pres = User::where('role', 'President')->get();
+        $vp = User::where('role', 'Vice President')->get();
+        $cfo = User::where('role', 'Chief Financial Officer')->get();
+        $cco = User::where('role', 'Chief Compliance Officer')->get();
+        $wm = User::where('role', 'Webmaster')->get();
         $members = User::whereNull('role')->get();
-        return view('members.index', compact('advisors','presidents', 'vice_presidents', 'treasurers', 'secretaries', 'members'));
+        return view('members.index', compact('adv','pres', 'vp', 'cfo', 'cco', 'members', 'wm'));
     }
     
     public function management()
     {
-        $advisors = User::where('role', 'Advisor')->get();
-        $presidents = User::where('role', 'President')->get();
-        $vice_presidents = User::where('role', 'Vice President')->get();
-        $treasurers = User::where('role', 'Treasurer')->get();
-        $secretaries = User::where('role', 'Secretary')->get();
-        return view('pages.management', compact('advisors','presidents', 'vice_presidents', 'treasurers', 'secretaries'));
+        $adv = User::where('role', 'Advisor')->get();
+        $pres = User::where('role', 'President')->get();
+        $vp = User::where('role', 'Vice President')->get();
+        $cfo = User::where('role', 'Chief Financial Officer')->get();
+        $cco = User::where('role', 'Chief Compliance Officer')->get();
+        $wm = User::where('role', 'Webmaster')->get();
+        return view('pages.management', compact('adv','pres', 'vp', 'cfo', 'cco', 'wm'));
     }
     
     public function show($id)
@@ -118,7 +119,8 @@ class AccountsController extends Controller
     {
         $this->validate($request, [
             'avatar' => 'image|nullable',
-            'biography' => 'string|nullable'
+            'biography' => 'string|nullable',
+            'email' => 'string'
         ]);
 
         $user = User::where('id', $id)->first();
@@ -131,7 +133,11 @@ class AccountsController extends Controller
         }
 
         $user->biography = $request->biography;
+        $user->email = $request->email;
         $user->save();
+
+        DB::connection('mysql_talk')->table('users')->where('username', Auth::user()->fname . Auth::user()->lname)
+            ->update(['email' => $request->email]);
 
         session()->flash('success', 'Successfully updated profile.');
         return redirect('dashboard/edit');

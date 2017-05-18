@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($advisors as $user)
+            @foreach($adv as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
                     <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
@@ -41,7 +41,7 @@
                     </td>
                 </tr>
             @endforeach
-            @foreach($presidents as $user)
+            @foreach($pres as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
                     <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
@@ -56,7 +56,7 @@
                     </td>
                 </tr>
             @endforeach
-            @foreach($vice_presidents as $user)
+            @foreach($vp as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
                     <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
@@ -71,7 +71,7 @@
                     </td>
                 </tr>
             @endforeach
-            @foreach($treasurers as $user)
+            @foreach($cfo as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
                     <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
@@ -86,11 +86,26 @@
                     </td>
                 </tr>
             @endforeach
-            @foreach($secretaries as $user)
+            @foreach($cco as $user)
                 <tr>
                     <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
                     <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
                     <td style="text-align: center; vertical-align: middle"><span style="background: red" class="label">{{ $user->role }}</span></td>
+                    <td style="text-align: center; vertical-align: middle">
+                        @php
+                            $member_since = explode(' ', $user->created_at);
+                            $member_since = implode('-', $member_since);
+                            $member_since = explode('-', $member_since);
+                            echo $member_since[1] . '-' . $member_since[2] . '-' . $member_since[0];
+                        @endphp
+                    </td>
+                </tr>
+            @endforeach
+            @foreach($wm as $user)
+                <tr>
+                    <td style="text-align: center; vertical-align: middle"><img src="{{ url('avatars/' . $user->avatar) }}" width="30%" class="img-circle"></td>
+                    <td style="text-align: center; vertical-align: middle"><a href="{{ url('members/' . $user->id) }}">{{ $user->name }}</a></td>
+                    <td style="text-align: center; vertical-align: middle"><span style="background: orange" class="label">{{ $user->role }}</span></td>
                     <td style="text-align: center; vertical-align: middle">
                         @php
                             $member_since = explode(' ', $user->created_at);

@@ -16,7 +16,7 @@ We have also made you an account on our forums.
 
 @component('mail::panel')
     **Username:** {{ $user->fname . $user->lname }}  
-    **Password:** {{ $password }}  
+    **Password:** Chosen at Registration  
     **Link:** https://talk.ahscpc.org
 @endcomponent
 

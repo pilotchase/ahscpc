@@ -27,7 +27,11 @@
                                 <br/>
                         </div>
                         <div class="col-md-6">
-                            <textarea name="biography" class="form-control" placeholder="Biography" rows="6">{{ Auth::user()->biography }}</textarea><br/>
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
+                            <br/>
+                            <label>Biography:</label>
+                            <textarea name="biography" class="form-control" rows="6">{{ Auth::user()->biography }}</textarea><br/>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                         </form>

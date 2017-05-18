@@ -30,7 +30,7 @@
                         @endphp
                         <br/>
                         @if(Auth::user()->role)
-                            Role: <span class="label" style="padding: 5px; background: @if(Auth::user()->role == 'President') rebeccapurple @elseif(Auth::user()->role == 'Advisor') black @elseif(Auth::user()->role == 'Vice President') green @elseif(Auth::user()->role == 'Treasurer') #1c3f95 @elseif(Auth::user()->role == 'Secretary') red @endif">{{ Auth::user()->role }}</span><br/>
+                            Role: <span class="label" style="padding: 5px; background: @if(Auth::user()->role == 'President') rebeccapurple @elseif(Auth::user()->role == 'Advisor') black @elseif(Auth::user()->role == 'Vice President') green @elseif(Auth::user()->role == 'Chief Financial Officer') #1c3f95 @elseif(Auth::user()->role == 'Chief Compliance Officer') red @elseif(Auth::user()->role == 'Webmaster') orange @endif">{{ Auth::user()->role }}</span><br/>
                         @endif
                         <br/><br/>
                         @if(Auth::user()->biography)

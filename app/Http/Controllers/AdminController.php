@@ -45,7 +45,7 @@ class AdminController extends Controller
         if($request->recipient == 'staff') {
             $recipients = User::whereNotNull('role')->pluck('email');
         } elseif($request->recipient == 'all') {
-            $recipients = User::pluck('staff_email');
+            $recipients = User::pluck('email');
         } else {
             session()->flash('danger', 'An error occurred while fetching recipients.');
             return redirect('admin/broadcast');
@@ -102,7 +102,7 @@ class AdminController extends Controller
         Mail::to($user->email)->send(new PasswordReset($user, $password_plain));
         
         session()->flash('success', 'Password successfully reset.');
-        return redirect('admin/member/' . $id);
+        return redirect('members/' . $id);
     }
 
     public function member()
@@ -130,7 +130,7 @@ class AdminController extends Controller
         if($user->role != $request->role && $request->role != '')
         {
            $role = $request->role;
-           Mail::to($user->email)->cc('morganchasea@gmail.com')->send(new NewRole($user, $changer, $role));
+           Mail::to($user->email)->cc('pres@ahscpc.org')->send(new NewRole($user, $changer, $role));
         }
         
         User::where('id', $id)
@@ -142,6 +142,6 @@ class AdminController extends Controller
             );
         
         session()->flash('success', 'Member roles updated successfully.');
-        return redirect('admin/member/' . $id);
+        return redirect('members/' . $id);
     }
 }

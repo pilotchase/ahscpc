@@ -19,7 +19,7 @@
                     @endphp
                     <br>
                     @if($user->role)
-                        <strong>Role:</strong> <span class="label" style="padding: 5px; background: @if($user->role == 'President') rebeccapurple @elseif($user->role == 'Advisor') black @elseif($user->role == 'Vice President') green @elseif($user->role == 'Treasurer') #1c3f95 @elseif($user->role == 'Secretary') red @endif">{{ $user->role }}</span><br/>
+                        <strong>Role:</strong> <span class="label" style="padding: 5px; background: @if($user->role == 'President') rebeccapurple @elseif($user->role == 'Advisor') black @elseif($user->role == 'Vice President') green @elseif($user->role == 'Chief Financial Officer') #1c3f95 @elseif($user->role == 'Chief Compliance Officer') red @elseif($user->role == 'Webmaster') orange @endif">{{ $user->role }}</span><br/>
                     @endif
                     @if($user->biography)
                         <div class="well" style="margin-top: 20px;">
@@ -55,7 +55,7 @@
                         <div class="panel-body">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#summarry" aria-controls="home" role="tab" data-toggle="tab">Summarry</a></li>
+                                <li role="presentation" class="active"><a href="#summarry" aria-controls="home" role="tab" data-toggle="tab">Summary</a></li>
                                 <li role="presentation"><a href="#roles" aria-controls="roles" role="tab" data-toggle="tab">Roles</a></li>
                                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
                                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
@@ -91,8 +91,9 @@
                                                     <option value="Advisor" @if($user->role == 'Advisor') selected="selected" @endif>Advisor</option>
                                                     <option value="President" @if($user->role == 'President') selected="selected" @endif>President</option>
                                                     <option value="Vice President" @if($user->role == 'Vice President') selected="selected" @endif>Vice President</option>
-                                                    <option value="Treasurer" @if($user->role == 'Treasurer') selected="selected" @endif>Treasurer</option>
-                                                    <option value="Secretary" @if($user->role == 'Secretary') selected="selected" @endif>Secretary</option>
+                                                    <option value="Chief Financial Officer" @if($user->role == 'Chief Financial Officer') selected="selected" @endif>Chief Financial Officer</option>
+                                                    <option value="Chief Compliance Officer" @if($user->role == 'Chief Compliance Officer') selected="selected" @endif>Chief Compliance Officer</option>
+                                                    <option value="Webmaster" @if($user->role == 'Webmaster') selected="selected" @endif>Webmaster</option>
                                                 </select>
                                                 <br/>
                                                 <button type="submit" class="btn btn-primary">Update</button>

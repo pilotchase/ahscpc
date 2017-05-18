@@ -23,7 +23,7 @@ class ApiController extends Controller
         $tokens = DB::table('api_tokens')->get();
         foreach ($tokens as $key)
         {
-            if($key->token == $token)
+            if($key->token == $token && $key->ip == $_SERVER['REMOTE_ADDR'])
             {
                 return true;
             }
@@ -35,7 +35,7 @@ class ApiController extends Controller
     {
         if($this->checkToken($token))
         {
-            $users = User::get(['student_id', 'fname', 'lname', 'role', 'biography']);
+            $users = User::get(['student_id', 'fname', 'lname', 'role', 'avatar', 'biography']);
             if($users != null)
             {
                 return $users;
@@ -51,7 +51,7 @@ class ApiController extends Controller
     {
         if($this->checkToken($token))
         {
-            $user = User::where('student_id', $sid)->first(['student_id', 'fname', 'lname', 'role', 'biography']);
+            $user = User::where('student_id', $sid)->first(['student_id', 'fname', 'lname', 'role', 'avatar', 'biography']);
             if($user != null)
             {
                 return $user;

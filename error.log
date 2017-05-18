@@ -51,3 +51,5 @@
 [Wed May 17 22:08:51.276010 2017] [:error] [pid 6453] [client 73.202.205.32:64009] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/ahscpc/routes/web.php on line 23
 [Wed May 17 22:09:08.793295 2017] [:error] [pid 8601] [client 73.202.205.32:64020] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/ahscpc/routes/web.php on line 23
 [Wed May 17 22:52:05.783515 2017] [:error] [pid 8883] [client 73.202.205.32:64922] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /var/www/ahscpc/routes/web.php on line 36
+[Thu May 18 14:45:27.189896 2017] [authz_core:error] [pid 9223] [client 70.214.4.217:21313] AH01630: client denied by server configuration: /usr/share/phpMyAdmin/
+[Thu May 18 18:34:26.929572 2017] [:error] [pid 19350] [client 169.199.30.125:5228] PHP Parse error:  syntax error, unexpected 'session' (T_STRING) in /var/www/ahscpc/app/Http/Controllers/AccountsController.php on line 142, referer: https://ahscpc.org/

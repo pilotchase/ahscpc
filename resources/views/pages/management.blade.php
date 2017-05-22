@@ -18,7 +18,7 @@
                             <p><strong>{{ $user->role }}</strong></p>
                             <hr style="margin: 5px;">
                             <p>Responsible for advising AHSCPC Student Management and auditing compliance with AHS Club Policy.</p>
-                            <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                            <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                         </center>
                     </div>
                 @endforeach
@@ -31,7 +31,7 @@
                             <p><strong>{{ $user->role }}</strong></p>
                             <hr style="margin: 5px;">
                             <p>Responsible for all operations associated with AHSCPC, and oversees long-term goals and developments. Reports to the AHSCPC Advisor.</p>
-                            <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                            <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                         </center>
                     </div>
                 @endforeach
@@ -43,7 +43,7 @@
                                 <p><strong>{{ $user->role }}</strong></p>
                                 <hr style="margin: 5px;">
                                 <p>Responsible for member operations associated with AHSCPC, and oversees short-term goals and day-to-day developments. Reports to the AHSCPC President.</p>
-                                <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                                <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                             </center>
                         </div>
                     @endforeach
@@ -58,7 +58,7 @@
                                 <p><strong>{{ $user->role }}</strong></p>
                                 <hr style="margin: 5px;">
                                 <p>Responsible for the management of club grants, and auditing expense reports. Reports to the AHSCPC Vice President.</p>
-                                <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                                <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                             </center>
                         </div>
                     @endforeach
@@ -72,7 +72,7 @@
                                 <p><strong>{{ $user->role }}</strong></p>
                                 <hr style="margin: 5px;">
                                 <p>Responsible for tracking and reporting club minutes at all meetings. Reports to the AHSCPC Vice President.</p>
-                                <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                                <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                             </center>
                         </div>
                     @endforeach
@@ -84,7 +84,7 @@
                                     <p><strong>{{ $user->role }}</strong></p>
                                     <hr style="margin: 5px;">
                                     <p>Responsible for developing the club website, and maintaining the authenticity and security of all computer networks related to AHSCPC. Reports to the AHSCPC Vice President.</p>
-                                    <a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a>
+                                    <a href="mailto:{{ $user->staff_email }}"><i class="fa fa-envelope"></i></a>
                                 </center>
                             </div>
                         @endforeach

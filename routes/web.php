@@ -89,6 +89,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
          */
         
         Route::post('create', 'AdminController@store');
+
+        /**
+         * Suspend Member
+         */
+        
+        Route::post('members/{id}/suspend', 'AdminController@suspend');
         
         /**
          * Send broadcast
@@ -157,6 +163,7 @@ Route::get('join', 'AccountsController@join_view');
  */
 
 Auth::routes();
+Route::post('login', 'AccountsController@authenticate')->name('login');
 
 /**
  * Log user out of the application

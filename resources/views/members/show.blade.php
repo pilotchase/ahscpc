@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-8" style="font-size: 16pt;">Administration</div>
@@ -117,13 +117,13 @@
                                         <div class="col-md-6">
                                             <form action="{{ url('members/' . $user->id . '/edit') }}" class="form-horizontal">
                                                 <label>First Name:</label>
-                                                <input type="text" name="fname" class="form-control" value="{{ $user->fname }}" required>
+                                                <input type="text" name="fname" class="form-control" value="{{ $user->fname }}" readonly>
                                                 <br/>
                                                 <label>Last Name:</label>
-                                                <input type="text" name="lname" class="form-control" value="{{ $user->lname }}" required>
+                                                <input type="text" name="lname" class="form-control" value="{{ $user->lname }}" readonly>
                                                 <br/>
                                                 <label>Email Address:</label>
-                                                <input type="text" name="email" class="form-control" value="{{ $user->email }}" readonly>
+                                                <input type="text" name="email" class="form-control" value="{{ $user->email }}" required>
                                                 <br/>
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </form>
@@ -133,15 +133,16 @@
                                 <div role="tabpanel" class="tab-pane fade" id="roles">
                                     <br/>
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-8">
                                             <form action="{{ url('admin/member/' . $user->id . '/roles') }}" method="post" class="form-horizontal">
                                                 {{ csrf_field() }}
+                                                <label>Administration Access:</label>
                                                 <select name="admin" class="form-control">
                                                     <option value="0" @if($user->admin == 0) selected="selected" @endif>No Admin</option>
                                                     <option value="1" @if($user->admin == 1) selected="selected" @endif>Club Admin</option>
                                                     <option value="2" @if($user->admin == 2) selected="selected" @endif>Director Admin</option>
                                                 </select>
-                                                <br/>
+                                                <label style="margin-top: 10px;">Management Role:</label>
                                                 <select name="role" class="form-control">
                                                     <option value="" @if(!$user->role) selected="selected" @endif>No Management Role</option>
                                                     <option value="Advisor" @if($user->role == 'Advisor') selected="selected" @endif>Advisor</option>
@@ -152,6 +153,9 @@
                                                     <option value="Webmaster" @if($user->role == 'Webmaster') selected="selected" @endif>Webmaster</option>
                                                 </select>
                                                 <br/>
+                                                <label>Staff Email:</label>
+                                                <input type="email" name="staff_email" class="form-control" value="{{ $user->staff_email }}" placeholder="@ahscpc.org">
+                                                <br/>
                                                 <button type="submit" class="btn btn-primary">Update</button>
                                             </form>
                                         </div>
@@ -160,9 +164,38 @@
                                 <div role="tabpanel" class="tab-pane" id="messages">...</div>
                                 <div role="tabpanel" class="tab-pane fade" id="settings">
                                     <br/>
-                                    <button onclick="location.href='{{ url('admin/member/' . $user->id . '/passwordreset') }}';"  class="btn btn-primary">Reset Password</button>
+                                    <button onclick="location.href='{{ url('admin/member/' . $user->id . '/passwordreset') }}';"  class="btn btn-primary">Reset Password <i class="fa fa-key"></i></button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#suspend">
+                                        Suspend <i class="fa fa-lock"></i>
+                                    </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="suspend" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Suspend {{ $user->name }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ url('admin/members/' . $user->id . '/suspend') }}" method="post">
+                                {{ csrf_field() }}
+                                <label>Duration:</label>
+                                <select name="duration" >
+                                    <option value=""></option>
+                                </select>
+                                <label>Reason:</label>
+                                <textarea name="reason" class="form-control"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-warning btn-block">Suspend <i class="fa fa-lock"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>

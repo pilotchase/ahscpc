@@ -5,14 +5,13 @@
     <title>AHS Computer Programing Club - @yield('title')</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://use.fontawesome.com/2d6fb1cf74.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
 
 <!-- JS Scripts for Boostrap Plugins -->
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{{ url('css/style.css') }}">
 
 <!-- navbar -->

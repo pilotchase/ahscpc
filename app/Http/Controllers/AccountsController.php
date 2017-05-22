@@ -22,6 +22,33 @@ class AccountsController extends Controller
         //$this->middleware('auth');
     }
 
+    /**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = array(
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+        );
+
+        if (Auth::attempt($credentials))
+        {
+            if(Auth::user()->rating == 0)
+            {
+                Auth::logout();
+                return redirect()->intended('login');
+            }
+            return redirect()->intended('dashboard');
+        }
+        else
+        {
+            return redirect()->intended('login');
+        }
+    }
+
     public function join_view()
     {
         return view('pages.join');

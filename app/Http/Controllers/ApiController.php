@@ -35,7 +35,7 @@ class ApiController extends Controller
     {
         if($this->checkToken($token))
         {
-            $users = User::get(['student_id', 'fname', 'lname', 'role', 'avatar', 'biography']);
+            $users = User::get(['student_id', 'rating', 'rating_short', 'fname', 'lname', 'role', 'avatar', 'biography']);
             if($users != null)
             {
                 return $users;
@@ -51,7 +51,7 @@ class ApiController extends Controller
     {
         if($this->checkToken($token))
         {
-            $user = User::where('student_id', $sid)->first(['student_id', 'fname', 'lname', 'role', 'avatar', 'biography']);
+            $user = User::where('student_id', $sid)->first(['student_id', 'rating', 'rating_short', 'fname', 'lname', 'role', 'avatar', 'biography']);
             if($user != null)
             {
                 return $user;

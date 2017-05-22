@@ -10,6 +10,7 @@ use App\Mail\AccountCreated;
 use App\Mail\Broadcast;
 use App\Mail\NewRole;
 use App\Mail\PasswordReset;
+use App\Mail\Suspended;
 use App\User;
 
 class AdminController extends Controller
@@ -110,6 +111,23 @@ class AdminController extends Controller
         return view('admin.member');
     }
     
+    public function suspend(Request $request, $id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->rating_last = $user->rating;
+        $user->rating = 0;
+        $user->rating_short = 'SUS';
+        $user->remember_token = null;
+        $user->save();
+
+        DB::table('sessions')->where('user_id', $id)->truncate();
+
+        Mail::to($user->email)->cc(['pres@ahscpc.org', 'compliance@ahscpc.org'])->queue(new Suspended($user, Auth::user(), $request->reason));
+        
+        session()->flash('success', 'You have successfully suspended ' . $user->name . '.');
+        return redirect('members/' . $user->id);
+    }
+    
     public function getAccount(Request $request)
     {
         $user = User::where('student_id', $request->sid)->first();
@@ -137,7 +155,8 @@ class AdminController extends Controller
             ->update(
                 [
                     'admin' => $request->admin,
-                    'role' => $request->role
+                    'role' => $request->role,
+                    'staff_email' => $request->staff_email
                 ]
             );
         

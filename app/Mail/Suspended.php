@@ -7,24 +7,24 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewRole extends Mailable
+class Suspended extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
-    public $changer;
-    public $role;
+    public $by;
+    public $reason;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $changer, $role)
+    public function __construct($user, $by, $reason)
     {
         $this->user = $user;
-        $this->changer = $changer;
-        $this->role = $role;
+        $this->by = $by;
+        $this->reason = $reason;
     }
 
     /**
@@ -34,6 +34,6 @@ class NewRole extends Mailable
      */
     public function build()
     {
-        return $this->from('compliance@ahscpc.org', 'Compliance Officer')->markdown('emails.new_role')->subject('Welcome to AHSCPC Management!');
+        return $this->from('compliance@ahscpc.org', 'Compliance Officer')->markdown('emails.account.suspended')->subject('Membership Suspended');
     }
 }
